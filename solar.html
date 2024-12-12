@@ -114,10 +114,172 @@
         <div class="container text-center">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <i class="bi bi-exclamation-triangle display-1 text-primary"></i>
-                    <h1 class="display-1">404</h1>
-                    <h1 class="mb-4">Page Not Found</h1>
-                    <p class="mb-4">We’re sorry, the page you have looked for does not exist in our website! Maybe go to our home page or try to use a search?</p>
+                    
+                  <form id="powerCalculatorForm">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="location">Location:</label>
+  <input type="text" id="location" name="location" required>
+
+  <label for="phone">Phone:</label>
+  <input type="text" id="phone" name="phone" required>
+
+  <h3>Appliances</h3>
+  <div>
+    <label>
+      <input type="checkbox" value="20" name="Light Bulb (LED)">
+      Light Bulb (LED)
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Light Bulb (LED)">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="100" name="Electric Fan (ceiling/standing)">
+      Electric Fan (Ceiling/Standing)
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Electric Fan (ceiling/standing)">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="150" name="Television">
+      Television
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Television">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="50" name="Decoder (DSTV, GOtv, Startimes)">
+      Decoder (DSTV, GOtv, Startimes)
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Decoder (DSTV, GOtv, Startimes)">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="50" name="Sound System">
+      Sound System
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Sound System">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="100" name="Laptop">
+      Laptop
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Laptop">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="300" name="Desktop Computer">
+      Desktop Computer
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Desktop Computer">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="400" name="Student Refrigerator">
+      Student Refrigerator
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Student Refrigerator">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="700" name="Standing Refrigerator">
+      Standing Refrigerator
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Standing Refrigerator">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="800" name="Deep Freezer">
+      Deep Freezer
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Deep Freezer">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="30" name="Hair Clipper">
+      Hair Clipper
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Hair Clipper">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="2000" name="Electric Hair Dryer">
+      Electric Hair Dryer
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Electric Hair Dryer">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="500" name="Electric Sewing Machine">
+      Electric Sewing Machine
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Electric Sewing Machine">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="2000" name="Air Conditioner">
+      Air Conditioner
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Air Conditioner">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="1500" name="Electric Iron">
+      Electric Iron
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Electric Iron">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="1000" name="Microwave Oven">
+      Microwave Oven
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Microwave Oven">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="1000" name="Washing Machine">
+      Washing Machine
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Washing Machine">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="700" name="Blender">
+      Blender
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Blender">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="1500" name="Electric Kettle">
+      Electric Kettle
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Electric Kettle">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="2000" name="Water Heater">
+      Water Heater
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Water Heater">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" value="2000" name="Pumping Machine">
+      Pumping Machine
+    </label>
+    <input type="number" min="0" placeholder="Quantity" name="Pumping Machine">
+  </div>
+  <button type="button" onclick="calculatePower()">Calculate</button>
+</form>
+
+<div id="result"></div>
+  
+                    
+                    
                     <a class="btn btn-primary py-3 px-5" href="">Go Back To Home</a>
                 </div>
             </div>
