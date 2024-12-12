@@ -110,181 +110,187 @@
 
 
     <!-- 404 Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container text-center">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    
-                  <form id="powerCalculatorForm">
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name" required>
-
-  <label for="location">Location:</label>
-  <input type="text" id="location" name="location" required>
-
-  <label for="phone">Phone:</label>
-  <input type="text" id="phone" name="phone" required>
-
-  <h3>Appliances</h3>
-  <div>
-    <label>
-      <input type="checkbox" value="20" name="Light Bulb (LED)">
-      Light Bulb (LED)
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Light Bulb (LED)">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="100" name="Electric Fan (ceiling/standing)">
-      Electric Fan (Ceiling/Standing)
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Electric Fan (ceiling/standing)">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="150" name="Television">
-      Television
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Television">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="50" name="Decoder (DSTV, GOtv, Startimes)">
-      Decoder (DSTV, GOtv, Startimes)
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Decoder (DSTV, GOtv, Startimes)">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="50" name="Sound System">
-      Sound System
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Sound System">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="100" name="Laptop">
-      Laptop
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Laptop">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="300" name="Desktop Computer">
-      Desktop Computer
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Desktop Computer">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="400" name="Student Refrigerator">
-      Student Refrigerator
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Student Refrigerator">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="700" name="Standing Refrigerator">
-      Standing Refrigerator
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Standing Refrigerator">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="800" name="Deep Freezer">
-      Deep Freezer
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Deep Freezer">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="30" name="Hair Clipper">
-      Hair Clipper
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Hair Clipper">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="2000" name="Electric Hair Dryer">
-      Electric Hair Dryer
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Electric Hair Dryer">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="500" name="Electric Sewing Machine">
-      Electric Sewing Machine
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Electric Sewing Machine">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="2000" name="Air Conditioner">
-      Air Conditioner
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Air Conditioner">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="1500" name="Electric Iron">
-      Electric Iron
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Electric Iron">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="1000" name="Microwave Oven">
-      Microwave Oven
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Microwave Oven">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="1000" name="Washing Machine">
-      Washing Machine
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Washing Machine">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="700" name="Blender">
-      Blender
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Blender">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="1500" name="Electric Kettle">
-      Electric Kettle
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Electric Kettle">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="2000" name="Water Heater">
-      Water Heater
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Water Heater">
-  </div>
-  <div>
-    <label>
-      <input type="checkbox" value="2000" name="Pumping Machine">
-      Pumping Machine
-    </label>
-    <input type="number" min="0" placeholder="Quantity" name="Pumping Machine">
-  </div>
-  <button type="button" onclick="calculatePower()">Calculate</button>
-</form>
-
-<div id="result"></div>
-  
-                    
-                    
-                    <a class="btn btn-primary py-3 px-5" href="">Go Back To Home</a>
-                </div>
+<form id="powerCalculatorForm">
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                <label for="name">Your Name</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="location" placeholder="Your Location" required>
+                <label for="location">Your Location</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="phone" placeholder="Your Phone" required>
+                <label for="phone">Your Phone</label>
             </div>
         </div>
     </div>
+
+    <h3 class="mt-4">Select Appliances</h3>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="20" name="Light Bulb (LED)">
+                Light Bulb (LED)
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Light Bulb (LED)" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="100" name="Electric Fan (ceiling/standing)">
+                Electric Fan (Ceiling/Standing)
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Electric Fan (ceiling/standing)" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="150" name="Television">
+                Television
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Television" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="50" name="Decoder">
+                Decoder (DSTV, GOtv, Startimes)
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Decoder" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="200" name="Sound System">
+                Sound System
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Sound System" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="100" name="Laptop">
+                Laptop
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Laptop" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="300" name="Desktop Computer">
+                Desktop Computer
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Desktop Computer" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="400" name="Student Refrigerator">
+                Student Refrigerator
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Student Refrigerator" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="700" name="Standing Refrigerator">
+                Standing Refrigerator
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Standing Refrigerator" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="800" name="Deep Freezer">
+                Deep Freezer
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Deep Freezer" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="30" name="Hair Clipper">
+                Hair Clipper
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Hair Clipper" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="2000" name="Electric Hair Dryer">
+                Electric Hair Dryer
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Electric Hair Dryer" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="500" name="Electric Sewing Machine">
+                Electric Sewing Machine
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Electric Sewing Machine" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="2000" name="Air Conditioner">
+                Air Conditioner
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Air Conditioner" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="1500" name="Electric Iron">
+                Electric Iron
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Electric Iron" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="1000" name="Microwave Oven">
+                Microwave Oven
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Microwave Oven" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="1000" name="Washing Machine">
+                Washing Machine
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Washing Machine" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="700" name="Blender">
+                Blender
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Blender" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="1500" name="Electric Kettle">
+                Electric Kettle
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Electric Kettle" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="2000" name="Water Heater">
+                Water Heater
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Water Heater" min="0">
+        </div>
+        <div class="col-md-6">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="2000" name="Pumping Machine">
+                Pumping Machine
+            </label>
+            <input type="number" class="form-control mt-2" placeholder="Quantity" name="Pumping Machine" min="0">
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary mt-3" onclick="calculatePower()">Calculate</button>
+</form>
+
+<div id="result" class="mt-4"></div>
+
+                    
+  <a class="btn btn-primary py-3 px-5" href="">Go Back To Home</a>
+    
     <!-- 404 End -->
         
 
