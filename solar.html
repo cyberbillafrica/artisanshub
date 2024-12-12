@@ -282,7 +282,7 @@
     <!-- 404 End -->
 
     
-    <script>   
+    <script>
 function calculatePower() {
     const form = document.getElementById("powerCalculatorForm");
     const inputs = form.querySelectorAll('input[type="checkbox"]');
@@ -290,11 +290,13 @@ function calculatePower() {
 
     inputs.forEach((checkbox) => {
         if (checkbox.checked) {
-            const wattage = parseInt(checkbox.value);
-            const quantity = parseInt(
-                form.querySelector(`input[name="${checkbox.name}"]`).value
-            ) || 0;
-            totalPower += wattage * quantity;
+            const wattage = parseInt(checkbox.value); // Appliance wattage
+            const quantityInput = form.querySelector(`input[name="${checkbox.name}"]`);
+            const quantity = parseInt(quantityInput.value) || 0; // Default to 0 if quantity is not entered
+
+            if (quantity > 0) { // Only calculate if a valid quantity is entered
+                totalPower += wattage * quantity;
+            }
         }
     });
 
@@ -325,6 +327,7 @@ function sendDataToGoogleSheet(form, totalPower) {
         .catch((error) => console.error("Error:", error));
 }
 </script>
+
 
     
     <!-- Footer Start --
