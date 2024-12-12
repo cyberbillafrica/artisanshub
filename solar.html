@@ -338,38 +338,53 @@
 </div>
     <!-- Form End -->
 
-            <script>
-    // Toggle the quantity input field based on the checkbox
-    function toggleInput(checkbox, inputName) {
-        const inputField = document.getElementsByName(inputName)[0];
-        inputField.disabled = !checkbox.checked;
-        if (!checkbox.checked) {
-            inputField.value = ""; // Clear value when disabled
-        }
-    }
-
-    // Function to calculate power requirements (you can expand this further)
+<script>
+    
     function calculatePower() {
-        let totalPower = 0;
+    let totalPower = 0;
 
-        // Loop through all input fields and checkboxes
-        const form = document.getElementById('powerCalculatorForm');
-        const checkboxes = form.querySelectorAll("input[type='checkbox']");
-        checkboxes.forEach((checkbox) => {
-            if (checkbox.checked) {
-                const inputName = checkbox.name.replace("_check", "_qty");
-                const quantityField = form.querySelector(`input[name="${inputName}"]`);
-                const quantity = parseInt(quantityField.value) || 0;
-                const wattage = parseInt(checkbox.value);
+    // Get all the checkboxes and their corresponding quantity inputs
+    const appliances = [
+        { check: "light_bulb_led_check", qty: "light_bulb_led_qty" },
+        { check: "electric_fan_check", qty: "electric_fan_qty" },
+        { check: "television_check", qty: "television_qty" },
+        { check: "decoder_check", qty: "decoder_qty" },
+        { check: "sound_system_check", qty: "sound_system_qty" },
+        { check: "laptop_check", qty: "laptop_qty" },
+        { check: "desktop_computer_check", qty: "desktop_computer_qty" },
+        { check: "student_refrigerator_check", qty: "student_refrigerator_qty" },
+        { check: "standing_refrigerator_check", qty: "standing_refrigerator_qty" },
+        { check: "deep_freezer_check", qty: "deep_freezer_qty" },
+        { check: "hair_clipper_check", qty: "hair_clipper_qty" },
+        { check: "electric_hair_dryer_check", qty: "electric_hair_dryer_qty" },
+        { check: "electric_sewing_machine_check", qty: "electric_sewing_machine_qty" },
+        { check: "air_conditioner_check", qty: "air_conditioner_qty" },
+        { check: "electric_iron_check", qty: "electric_iron_qty" },
+        { check: "microwave_oven_check", qty: "microwave_oven_qty" },
+        { check: "washing_machine_check", qty: "washing_machine_qty" },
+        { check: "blender_check", qty: "blender_qty" },
+        { check: "electric_kettle_check", qty: "electric_kettle_qty" },
+        { check: "water_heater_check", qty: "water_heater_qty" },
+        { check: "pumping_machine_check", qty: "pumping_machine_qty" }
+    ];
 
-                totalPower += wattage * quantity;
-            }
-        });
+    // Loop through each appliance, check if it's selected, and calculate its power usage
+    appliances.forEach(appliance => {
+        const checkbox = document.getElementsByName(appliance.check)[0];
+        const quantityInput = document.getElementsByName(appliance.qty)[0];
 
-        // Display result
-        const resultDiv = document.getElementById("result");
-        resultDiv.innerHTML = `<h4>Total Power: ${totalPower} Watts</h4>`;
-    }
+        if (checkbox && checkbox.checked) {
+            const powerValue = parseInt(checkbox.value); // Power per unit
+            const quantity = parseInt(quantityInput.value || 0); // Quantity entered
+            totalPower += powerValue * quantity; // Add to total power
+        }
+    });
+
+    // Display the total power
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = `<h4>Total Power Consumption: ${totalPower} Watts</h4>`;
+}
+    
 
 
 
