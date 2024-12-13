@@ -92,8 +92,9 @@
             const inverterCost = pricing.inverters[inverterIndex];
 
             // Determine Batteries
-            const batteries = inverterIndex === 0 ? 1 : inverterIndex <= 3 ? 2 : inverterIndex <= 5 ? 4 :
-            inverterIndex === 6 ? 8 : inverterIndex === 7 ? 12 : 16;
+            const batteries = inverterIndex <= 1 ? 1 : inverterIndex <= 3 ? 2 : inverterIndex <= 5 ? 4 :
+                inverterIndex === 6 ? 8 : inverterIndex === 7 ? 12 : 16;
+            const batteryCost = batteries * pricing.batteries;
 
             // Determine Solar Panels
             const panelType = inverterIndex <= 5 ? "250W" : "350W";
@@ -127,7 +128,5 @@
             document.getElementById("totalCost").innerText = `Estimated Total Cost: ₦${totalCost.toLocaleString()}`;
         });
     </script>
-    
-    </body>
-
+</body>
 </html>
