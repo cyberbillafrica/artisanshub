@@ -29,6 +29,15 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+<style>
+    .result-box {
+            display: none;
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -94,241 +103,118 @@
         <div class="row g-3">
           <div class="col-md-6">
     
-    <form id="powerCalculatorForm">
-   <h3 class="mt-4">Fill Details</h3>
-     <div class="form-floating">
-        <input type="text" class="form-control" id="name" placeholder="Your Name" required>
-        <label for="name">Your Name</label>
-    </div>
-    <div class="form-floating mt-3">
-        <input type="text" class="form-control" id="location" placeholder="Your Location" required>
-        <label for="location">Your Location</label>
-    </div>
-    <div class="form-floating mt-3">
-        <input type="text" class="form-control" id="phone" placeholder="Your Phone" required>
-        <label for="phone">Your Phone</label>
-    </div>
-
-    <h3 class="mt-4">Select Appliances</h3>
-    <div class="row g-3">
-        <!-- Light Bulb (LED) -->
-        <div class="col-md-6">
-            <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" value="20" name="light_bulb_led_check" 
-                       onchange="toggleInput(this, 'light_bulb_led_qty')">
-                Light Bulb (LED)
-            </label>
-            <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="light_bulb_led_qty" min="0" disabled>
-        </div>
-
-        <!-- Electric Fan -->
-        <div class="col-md-6 form-floating">
-            <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" value="100" name="electric_fan_check" 
-                       onchange="toggleInput(this, 'electric_fan_qty')">
-                Electric Fan (Ceiling/Standing)
-            </label>
-            <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="electric_fan_qty" min="0" disabled>
-        </div>
-
-        <!-- Television -->
-        <div class="col-md-6">
-            <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" value="150" name="television_check" 
-                       onchange="toggleInput(this, 'television_qty')">
-                Television
-            </label>
-            <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="television_qty" min="0" disabled>
-        </div>
-
-        <!-- Decoder -->
-        <div class="col-md-6">
-            <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" value="50" name="decoder_check" 
-                       onchange="toggleInput(this, 'decoder_qty')">
-                Decoder (DSTV, GOtv, Startimes)
-            </label>
-            <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="decoder_qty" min="0" disabled>
-        </div>
-
-        <!-- Sound System -->
-        <div class="col-md-6">
-            <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" value="200" name="sound_system_check" 
-                       onchange="toggleInput(this, 'sound_system_qty')">
-                Sound System
-            </label>
-            <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="sound_system_qty" min="0" disabled>
-        </div>
-
-        <!-- Laptop -->
-        <div class="col-md-6">
-            <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" value="100" name="laptop_check" 
-                       onchange="toggleInput(this, 'laptop_qty')">
-                Laptop
-            </label>
-            <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="laptop_qty" min="0" disabled>
-        </div>
-
-        <!-- Desktop Computer -->
-        <div class="col-md-6">
-            <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" value="300" name="desktop_computer_check" 
-                       onchange="toggleInput(this, 'desktop_computer_qty')">
-                Desktop Computer
-            </label>
-            <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="desktop_computer_qty" min="0" disabled>
-        </div>
-
-        <!-- Student Refrigerator -->
-        <div class="col-md-6">
-            <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" value="400" name="student_refrigerator_check" 
-                       onchange="toggleInput(this, 'student_refrigerator_qty')">
-                Student Refrigerator
-            </label>
-            <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="student_refrigerator_qty" min="0" disabled>
-        </div>
-
-        <!-- Standing Refrigerator -->
-        <div class="col-md-6">
-            <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" value="700" name="standing_refrigerator_check" 
-                       onchange="toggleInput(this, 'standing_refrigerator_qty')">
-                Standing Refrigerator
-            </label>
-            <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="standing_refrigerator_qty" min="0" disabled>
-        </div>
-
-        <!-- Deep Freezer -->
-        <div class="col-md-6">
-            <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" value="800" name="deep_freezer_check" 
-                       onchange="toggleInput(this, 'deep_freezer_qty')">
-                Deep Freezer
-            </label>
-            <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="deep_freezer_qty" min="0" disabled>
-        </div>
-
-        <!-- Hair Clipper -->
-<div class="col-md-6">
-    <label class="form-check-label">
-        <input type="checkbox" class="form-check-input" value="30" name="hair_clipper_check" 
-               onchange="toggleInput(this, 'hair_clipper_qty')">
-        Hair Clipper
-    </label>
-    <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="hair_clipper_qty" min="0" disabled>
-</div>
-
-<!-- Electric Hair Dryer -->
-<div class="col-md-6">
-    <label class="form-check-label">
-        <input type="checkbox" class="form-check-input" value="2000" name="electric_hair_dryer_check" 
-               onchange="toggleInput(this, 'electric_hair_dryer_qty')">
-        Electric Hair Dryer
-    </label>
-    <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="electric_hair_dryer_qty" min="0" disabled>
-</div>
-
-<!-- Electric Sewing Machine -->
-<div class="col-md-6">
-    <label class="form-check-label">
-        <input type="checkbox" class="form-check-input" value="500" name="electric_sewing_machine_check" 
-               onchange="toggleInput(this, 'electric_sewing_machine_qty')">
-        Electric Sewing Machine
-    </label>
-    <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="electric_sewing_machine_qty" min="0" disabled>
-</div>
-
-<!-- Air Conditioner -->
-<div class="col-md-6">
-    <label class="form-check-label">
-        <input type="checkbox" class="form-check-input" value="2000" name="air_conditioner_check" 
-               onchange="toggleInput(this, 'air_conditioner_qty')">
-        Air Conditioner
-    </label>
-    <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="air_conditioner_qty" min="0" disabled>
-</div>
-
-<!-- Electric Iron -->
-<div class="col-md-6">
-    <label class="form-check-label">
-        <input type="checkbox" class="form-check-input" value="1500" name="electric_iron_check" 
-               onchange="toggleInput(this, 'electric_iron_qty')">
-        Electric Iron
-    </label>
-    <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="electric_iron_qty" min="0" disabled>
-</div>
-
-<!-- Microwave Oven -->
-<div class="col-md-6">
-    <label class="form-check-label">
-        <input type="checkbox" class="form-check-input" value="1000" name="microwave_oven_check" 
-               onchange="toggleInput(this, 'microwave_oven_qty')">
-        Microwave Oven
-    </label>
-    <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="microwave_oven_qty" min="0" disabled>
-</div>
-
-<!-- Washing Machine -->
-<div class="col-md-6">
-    <label class="form-check-label">
-        <input type="checkbox" class="form-check-input" value="1000" name="washing_machine_check" 
-               onchange="toggleInput(this, 'washing_machine_qty')">
-        Washing Machine
-    </label>
-    <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="washing_machine_qty" min="0" disabled>
-</div>
-
-<!-- Blender -->
-<div class="col-md-6">
-    <label class="form-check-label">
-        <input type="checkbox" class="form-check-input" value="700" name="blender_check" 
-               onchange="toggleInput(this, 'blender_qty')">
-        Blender
-    </label>
-    <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="blender_qty" min="0" disabled>
-</div>
-
-<!-- Electric Kettle -->
-<div class="col-md-6">
-    <label class="form-check-label">
-        <input type="checkbox" class="form-check-input" value="1500" name="electric_kettle_check" 
-               onchange="toggleInput(this, 'electric_kettle_qty')">
-        Electric Kettle
-    </label>
-    <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="electric_kettle_qty" min="0" disabled>
-</div>
-
-<!-- Water Heater -->
-<div class="col-md-6">
-    <label class="form-check-label">
-        <input type="checkbox" class="form-check-input" value="2000" name="water_heater_check" 
-               onchange="toggleInput(this, 'water_heater_qty')">
-        Water Heater
-    </label>
-    <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="water_heater_qty" min="0" disabled>
-</div>
-
-             <!-- Pumping Machine -->
-        <div class="col-md-6">
-            <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" value="2000" name="pumping_machine_check" 
-                       onchange="toggleInput(this, 'pumping_machine_qty')">
-                Pumping Machine
-            </label>
-            <input type="number" class="form-control mt-2" placeholder="Enter Quantity" name="pumping_machine_qty" min="0" disabled>
-        </div>
-    </div>
-
-    <button type="button" class="btn btn-primary mt-3" onclick="calculatePower()">Calculate</button>
-</form>
-
-<div id="result" class="mt-4"></div>
-
-
+        <h1 class="text-center mb-4">Power Requirement Calculator</h1>
+        <form id="powerForm">
+            <div class="form-floating mt-3">
+                <input type="text" class="form-control" id="location" placeholder="Your Location" required>
+                <label for="location">Your Location</label>
+            </div>
+            <div class="form-floating mt-3">
+                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                <label for="name">Your Name</label>
+            </div>
+            <div class="form-floating mt-3">
+                <input type="tel" class="form-control" id="phone" placeholder="Your Phone Number" required>
+                <label for="phone">Your Phone Number</label>
+            </div>
             
+            <div class="mt-4">
+                <h4>Appliances</h4>
+                <!-- Appliance Inputs -->
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="lightBulb" placeholder="Light Bulb (LED)">
+                    <label for="lightBulb">Light Bulb (LED)</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="fan" placeholder="Electric Fan">
+                    <label for="fan">Electric Fan</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="tv" placeholder="Television">
+                    <label for="tv">Television</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="decoder" placeholder="Decoder">
+                    <label for="decoder">Decoder</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="soundSystem" placeholder="Sound System">
+                    <label for="soundSystem">Sound System</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="laptop" placeholder="Laptop">
+                    <label for="laptop">Laptop</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="desktop" placeholder="Desktop Computer">
+                    <label for="desktop">Desktop Computer</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="studentRefrigerator" placeholder="Student Refrigerator">
+                    <label for="studentRefrigerator">Student Refrigerator</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="standingRefrigerator" placeholder="Standing Refrigerator">
+                    <label for="standingRefrigerator">Standing Refrigerator</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="deepFreezer" placeholder="Deep Freezer">
+                    <label for="deepFreezer">Deep Freezer</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="hairClipper" placeholder="Hair Clipper">
+                    <label for="hairClipper">Hair Clipper</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="hairDryer" placeholder="Hair Dryer">
+                    <label for="hairDryer">Hair Dryer</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="sewingMachine" placeholder="Electric Sewing Machine">
+                    <label for="sewingMachine">Electric Sewing Machine</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="airConditioner" placeholder="Air Conditioner">
+                    <label for="airConditioner">Air Conditioner</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="electricIron" placeholder="Electric Iron">
+                    <label for="electricIron">Electric Iron</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="microwave" placeholder="Microwave Oven">
+                    <label for="microwave">Microwave Oven</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="washingMachine" placeholder="Washing Machine">
+                    <label for="washingMachine">Washing Machine</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="blender" placeholder="Blender">
+                    <label for="blender">Blender</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="electricKettle" placeholder="Electric Kettle">
+                    <label for="electricKettle">Electric Kettle</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="waterHeater" placeholder="Water Heater">
+                    <label for="waterHeater">Water Heater</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" class="form-control appliance" id="pumpingMachine" placeholder="Pumping Machine">
+                    <label for="pumpingMachine">Pumping Machine</label>
+                </div>
+            </div>
+
+            <div class="mt-4 result-box" id="resultBox">
+                <h5>Total Power Requirement:</h5>
+                <p id="totalPower">0W</p>
+            </div>
+
+            <button type="button" class="btn btn-primary mt-3" id="calculateBtn">Calculate</button>
+        </form>
+    </div>
 <a class="btn btn-primary py-3 px-5" href="">Go Back To Home</a>
                 </div>
             </div>
@@ -336,57 +222,46 @@
      </div>
     </div>
 </div>
-    <!-- Form End -->
+    <script>
+        // Wattage values for appliances
+        const applianceWattages = {
+            lightBulb: 20,
+            fan: 100,
+            tv: 150,
+            decoder: 50,
+            soundSystem: 200,
+            laptop: 100,
+            desktop: 300,
+            studentRefrigerator: 400,
+            standingRefrigerator: 700,
+            deepFreezer: 800,
+            hairClipper: 30,
+            hairDryer: 2000,
+            sewingMachine: 500,
+            airConditioner: 2000,
+            electricIron: 1500,
+            microwave: 1000,
+            washingMachine: 1000,
+            blender: 700,
+            electricKettle: 1500,
+            waterHeater: 2000,
+            pumpingMachine: 2000
+        };
 
-<script>
+        document.getElementById('calculateBtn').addEventListener('click', function () {
+            let totalPower = 0;
+            const appliances = document.querySelectorAll('.appliance');
+
+            appliances.forEach(appliance => {
+                const quantity = parseInt(appliance.value) || 0;
+                const wattage = applianceWattages[appliance.id] || 0;
+                totalPower += quantity * wattage;
+            });
+
+            document.getElementById('totalPower').textContent = totalPower + 'W';
+            document.getElementById('resultBox').style.display = 'block';
+        });
     
-    function calculatePower() {
-    let totalPower = 0;
-
-    // Get all the checkboxes and their corresponding quantity inputs
-    const appliances = [
-        { check: "light_bulb_led_check", qty: "light_bulb_led_qty" },
-        { check: "electric_fan_check", qty: "electric_fan_qty" },
-        { check: "television_check", qty: "television_qty" },
-        { check: "decoder_check", qty: "decoder_qty" },
-        { check: "sound_system_check", qty: "sound_system_qty" },
-        { check: "laptop_check", qty: "laptop_qty" },
-        { check: "desktop_computer_check", qty: "desktop_computer_qty" },
-        { check: "student_refrigerator_check", qty: "student_refrigerator_qty" },
-        { check: "standing_refrigerator_check", qty: "standing_refrigerator_qty" },
-        { check: "deep_freezer_check", qty: "deep_freezer_qty" },
-        { check: "hair_clipper_check", qty: "hair_clipper_qty" },
-        { check: "electric_hair_dryer_check", qty: "electric_hair_dryer_qty" },
-        { check: "electric_sewing_machine_check", qty: "electric_sewing_machine_qty" },
-        { check: "air_conditioner_check", qty: "air_conditioner_qty" },
-        { check: "electric_iron_check", qty: "electric_iron_qty" },
-        { check: "microwave_oven_check", qty: "microwave_oven_qty" },
-        { check: "washing_machine_check", qty: "washing_machine_qty" },
-        { check: "blender_check", qty: "blender_qty" },
-        { check: "electric_kettle_check", qty: "electric_kettle_qty" },
-        { check: "water_heater_check", qty: "water_heater_qty" },
-        { check: "pumping_machine_check", qty: "pumping_machine_qty" }
-    ];
-
-    // Loop through each appliance, check if it's selected, and calculate its power usage
-    appliances.forEach(appliance => {
-        const checkbox = document.getElementsByName(appliance.check)[0];
-        const quantityInput = document.getElementsByName(appliance.qty)[0];
-
-        if (checkbox && checkbox.checked) {
-            const powerValue = parseInt(checkbox.value); // Power per unit
-            const quantity = parseInt(quantityInput.value || 0); // Quantity entered
-            totalPower += powerValue * quantity; // Add to total power
-        }
-    });
-
-    // Display the total power
-    const resultDiv = document.getElementById("result");
-    resultDiv.innerHTML = `<h4>Total Power Consumption: ${totalPower} Watts</h4>`;
-}
-    
-
-
 
 // Write to Google Sheet
                 
