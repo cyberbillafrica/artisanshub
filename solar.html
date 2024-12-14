@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <title>Tasha - Solar Power Calculator</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Inverter System Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+   <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
@@ -29,26 +26,14 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-
-<style>
-    .result-box {
-            display: none;
-            background-color: #e9ecef;
-            padding: 15px;
-            border-radius: 5px;
-        }
+ <style>
+        body { background-color: #f8f9fa; }
+        .container { max-width: 800px; margin-top: 20px; }
     </style>
 </head>
-
 <body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
-    </div>
-    <!-- Spinner End -->
 
-
-    <!-- Navbar Start -->
+        <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-0 pe-5">
         <a href="index.html" class="navbar-brand ps-2 me-0">
             <h2 class="text-white m-0">Tasha Solar</h2>
@@ -93,222 +78,189 @@
         </div>
     </div>
     <!-- Page Header End -->
-
-
-    <!-- Form Start -->
-<div class="container-xxl py-5">
-    <div class="container">
-      <div class="row g-5 justify-content-center mb-5">
-      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="row g-3">
-          <div class="col-md-6">
     
-        <h1 class="text-center mb-4">Power Requirement Calculator</h1>
-        <form id="powerForm">
+    <div class="container">
+        <h1 class="text-center">Solar Inverter System Calculator</h1>
+        
+        <!-- User Details Section -->
+        <h5>Fill in your Personal Details</h5><div id="user-details" class="mb-4">
             <div class="form-floating mt-3">
-                <input type="text" class="form-control" id="location" placeholder="Your Location" required>
-                <label for="location">Your Location</label>
+                <input type="text" class="form-control" id="userName" placeholder="Name" required>
+                <label for="userName">Name</label>
             </div>
             <div class="form-floating mt-3">
-                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
-                <label for="name">Your Name</label>
+                <input type="tel" class="form-control" id="userPhone" placeholder="Phone Number" required>
+                <label for="userPhone">Phone Number</label>
             </div>
             <div class="form-floating mt-3">
-                <input type="tel" class="form-control" id="phone" placeholder="Your Phone Number" required>
-                <label for="phone">Your Phone Number</label>
-            </div>
-            
-            <div class="mt-4">
-                <h4>Appliances</h4>
-                <!-- Appliance Inputs -->
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="lightBulb" placeholder="Light Bulb (LED)">
-                    <label for="lightBulb">Light Bulb (LED)</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="fan" placeholder="Electric Fan">
-                    <label for="fan">Electric Fan</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="tv" placeholder="Television">
-                    <label for="tv">Television</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="decoder" placeholder="Decoder">
-                    <label for="decoder">Decoder</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="soundSystem" placeholder="Sound System">
-                    <label for="soundSystem">Sound System</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="laptop" placeholder="Laptop">
-                    <label for="laptop">Laptop</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="desktop" placeholder="Desktop Computer">
-                    <label for="desktop">Desktop Computer</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="studentRefrigerator" placeholder="Student Refrigerator">
-                    <label for="studentRefrigerator">Student Refrigerator</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="standingRefrigerator" placeholder="Standing Refrigerator">
-                    <label for="standingRefrigerator">Standing Refrigerator</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="deepFreezer" placeholder="Deep Freezer">
-                    <label for="deepFreezer">Deep Freezer</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="hairClipper" placeholder="Hair Clipper">
-                    <label for="hairClipper">Hair Clipper</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="hairDryer" placeholder="Hair Dryer">
-                    <label for="hairDryer">Hair Dryer</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="sewingMachine" placeholder="Electric Sewing Machine">
-                    <label for="sewingMachine">Electric Sewing Machine</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="airConditioner" placeholder="Air Conditioner">
-                    <label for="airConditioner">Air Conditioner</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="electricIron" placeholder="Electric Iron">
-                    <label for="electricIron">Electric Iron</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="microwave" placeholder="Microwave Oven">
-                    <label for="microwave">Microwave Oven</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="washingMachine" placeholder="Washing Machine">
-                    <label for="washingMachine">Washing Machine</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="blender" placeholder="Blender">
-                    <label for="blender">Blender</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="electricKettle" placeholder="Electric Kettle">
-                    <label for="electricKettle">Electric Kettle</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="waterHeater" placeholder="Water Heater">
-                    <label for="waterHeater">Water Heater</label>
-                </div>
-                <div class="form-floating mt-3">
-                    <input type="number" class="form-control appliance" id="pumpingMachine" placeholder="Pumping Machine">
-                    <label for="pumpingMachine">Pumping Machine</label>
-                </div>
-            </div>
-
-            <div class="mt-4 result-box" id="resultBox">
-                <h5>Total Power Requirement:</h5>
-                <p id="totalPower">0W</p>
-            </div>
-
-            <button type="button" class="btn btn-primary mt-3" id="calculateBtn">Calculate</button>
-        </form>
-    </div>
-<a class="btn btn-primary py-3 px-5" href="">Go Back To Home</a>
-                </div>
+                <input type="text" class="form-control" id="userLocation" placeholder="Location" required>
+                <label for="userLocation">Location</label>
             </div>
         </div>
-     </div>
-    </div>
+        
+        <!-- Appliance Input Section -->
+       <h5>Fill in your Appliances</h5>
+        <div id="form-container"></div>
+        
+        <!-- Calculate Button -->
+        <div style="display: flex; justify-content: center;">
+  <button id="calculateBtn" class="btn btn-primary mt-3" style="margin-bottom: 10px;">Calculate</button>
 </div>
-    <script>
-        // Wattage values for appliances
-        const applianceWattages = {
-            lightBulb: 20,
-            fan: 100,
-            tv: 150,
-            decoder: 50,
-            soundSystem: 200,
-            laptop: 100,
-            desktop: 300,
-            studentRefrigerator: 400,
-            standingRefrigerator: 700,
-            deepFreezer: 800,
-            hairClipper: 30,
-            hairDryer: 2000,
-            sewingMachine: 500,
-            airConditioner: 2000,
-            electricIron: 1500,
-            microwave: 1000,
-            washingMachine: 1000,
-            blender: 700,
-            electricKettle: 1500,
-            waterHeater: 2000,
-            pumpingMachine: 2000
-        };
 
-        document.getElementById('calculateBtn').addEventListener('click', function () {
-            let totalPower = 0;
-            const appliances = document.querySelectorAll('.appliance');
+    <!-- Results Section -->
+        <div id="result" class="mt-4 p-3 bg-light border rounded d-none">
+            <h4 style="color: green;">Below is your Estimated System Requirements and Costs:</h4>
+            <p id="totalPower" style="font-weight: bold;"></p>
+            <p id="inverter"></p>
+            <p id="batteries"></p>
+            <p id="panels"></p>
+            <p id="chargeController"></p>
+            <p id="batteryRack"></p>
+            <p id="cablesAccessories"></p>
+            <p id="logisticsInstallation"></p>
+            <h3 id="totalCost" style="color: red;"></h3>
+        </div>
+    </div>
+<script>
+    // Appliance Wattages
+    const appliances = {
+        "Light Bulb (LED)": 20,
+        "Electric Fan": 100,
+        "Television": 150,
+        "Decoder": 50,
+        "Sound System": 200,
+        "Laptop": 100,
+        "Desktop Computer": 300,
+        "Student Refrigerator": 400,
+        "Standing Refrigerator": 700,
+        "Deep Freezer": 800,
+        "Hair Clipper": 30,
+        "Electric Hair Dryer": 2000,
+        "Electric Sewing Machine": 500,
+        "Air Conditioner": 2000,
+        "Electric Iron": 1500,
+        "Microwave Oven": 1000,
+        "Washing Machine": 1000,
+        "Blender": 700,
+        "Electric Kettle": 1500,
+        "Water Heater": 2000,
+        "Pumping Machine": 2000
+    };
 
-            appliances.forEach(appliance => {
-                const quantity = parseInt(appliance.value) || 0;
-                const wattage = applianceWattages[appliance.id] || 0;
-                totalPower += quantity * wattage;
-            });
+    // Pricing Data
+    const pricing = {
+        inverters: [140000, 180000, 230000, 290000, 390000, 450000, 650000, 1200000, 1400000],
+        panels: { "250W": 70000, "350W": 100000 },
+        chargeControllers: [80000, 100000, 150000, 230000, 260000],
+        batteryRack: [30000, 40000, 60000, 100000, 120000, 130000, 170000, 220000, 300000],
+        cablesAccessories: [60000, 70000, 90000, 100000, 120000, 140000, 180000, 220000, 250000],
+        logisticsInstallation: [80000, 100000, 120000, 150000, 170000, 180000, 250000, 300000, 400000],
+        batteries: 300000
+    };
 
-            document.getElementById('totalPower').textContent = totalPower + 'W';
-            document.getElementById('resultBox').style.display = 'block';
+    // Populate Form
+    const formContainer = document.getElementById("form-container");
+    Object.keys(appliances).forEach((appliance, index) => {
+        formContainer.innerHTML += `
+            <div class="form-floating mt-3">
+                <input type="number" class="form-control" id="appliance-${index}" placeholder="${appliance}" min="0">
+                <label for="appliance-${index}">${appliance}</label>
+            </div>`;
+    });
+
+    // Calculate Total Power and Materials
+    document.getElementById("calculateBtn").addEventListener("click", () => {
+        const name = document.getElementById("userName").value.trim();
+        const phone = document.getElementById("userPhone").value.trim();
+        const location = document.getElementById("userLocation").value.trim();
+
+        // Validate User Details
+        if (!name || !phone || !location) {
+            alert("Please fill out your Name, Phone Number, and Location to calculate.");
+            return;
+        }
+
+        let totalPower = 0;
+        Object.values(appliances).forEach((watt, index) => {
+            const quantity = parseInt(document.getElementById(`appliance-${index}`).value) || 0;
+            totalPower += watt * quantity;
         });
-    
 
+        // Determine Inverter Capacity
+        const inverterIndex = totalPower <= 1000 ? 0 : totalPower <= 1500 ? 1 : totalPower <= 2000 ? 2 :
+            totalPower <= 2500 ? 3 : totalPower <= 3000 ? 4 : totalPower <= 3500 ? 5 :
+            totalPower <= 5000 ? 6 : totalPower <= 7500 ? 7 : 8;
+        const inverterCapacity = ["1kVA", "1.5kVA", "2kVA", "2.5kVA", "3kVA", "3.5kVA", "5kVA", "7.5kVA", "10kVA"][inverterIndex];
+        const inverterCost = pricing.inverters[inverterIndex];
 
+        // Determine Batteries (1kVA -> 1 battery, 1.5kVA -> 2 batteries, etc.)
+        const batteries = inverterIndex === 0 ? 1 : inverterIndex === 1 ? 2 : inverterIndex <= 3 ? 4 :
+            inverterIndex <= 5 ? 8 : inverterIndex <= 7 ? 12 : 16;
+        const batteryCost = batteries * pricing.batteries;
+
+        // Determine Solar Panels
+        const panelType = inverterIndex <= 5 ? "250W" : "350W";
+        const panels = inverterIndex <= 5 ? batteries * 3 : batteries * 2;
+        const panelCost = panels * pricing.panels[panelType];
+
+        // Determine Charge Controller
+        const chargeControllerIndex = inverterIndex <= 1 ? 0 : inverterIndex <= 3 ? 1 :
+            inverterIndex <= 5 ? 2 : inverterIndex === 6 ? 3 : 4;
+        const chargeControllerCost = pricing.chargeControllers[chargeControllerIndex];
+
+        // Additional Costs
+        const batteryRackCost = pricing.batteryRack[inverterIndex];
+        const cablesAccessoriesCost = pricing.cablesAccessories[inverterIndex];
+        const logisticsInstallationCost = pricing.logisticsInstallation[inverterIndex];
+
+        // Total Cost
+        const totalCost = inverterCost + batteryCost + panelCost + chargeControllerCost +
+            batteryRackCost + cablesAccessoriesCost + logisticsInstallationCost;
+
+        // Display Results
+        document.getElementById("result").classList.remove("d-none");
+        document.getElementById("totalPower").innerText = `Estimated Total Power Requirement = ${totalPower} Watts`;
+        document.getElementById("inverter").innerText = `Solar Inverter: ${inverterCapacity} (₦${inverterCost.toLocaleString()})`;
+        document.getElementById("batteries").innerText = `Tall Tubular Batteries: ${batteries} (₦${batteryCost.toLocaleString()})`;
+        document.getElementById("panels").innerText = `Solar Panels: ${panels} x ${panelType} (₦${panelCost.toLocaleString()})`;
+        document.getElementById("chargeController").innerText = `MPPT Charge Controller: ₦${chargeControllerCost.toLocaleString()}`;
+        document.getElementById("batteryRack").innerText = `Battery Rack & Solar Rails: ₦${batteryRackCost.toLocaleString()}`;
+        document.getElementById("cablesAccessories").innerText = `Cables & Accessories: ₦${cablesAccessoriesCost.toLocaleString()}`;
+        document.getElementById("logisticsInstallation").innerText = `Logistics & Installation: ₦${logisticsInstallationCost.toLocaleString()}`;
+        document.getElementById("totalCost").innerText = `Estimated Total Cost: ₦${totalCost.toLocaleString()}`;
+
+    // Generate WhatsApp Link
+        const whatsappNumber = "2349138353143"; // Replace with the expert's WhatsApp number
+        const message = encodeURIComponent(
+            `Hello, I need assistance with my solar power setup. Here are my requirements:\n` +
+            `- Total Power Requirement: ${totalPower}W\n` +
+            `- Inverter: ${inverterCapacity} (₦${inverterCost.toLocaleString()})\n` +
+            `- Batteries: ${batteries} (₦${batteryCost.toLocaleString()})\n` +
+            `- Solar Panels: ${panels} x ${panelType} (₦${panelCost.toLocaleString()})\n` +
+            `- Charge Controller: ₦${chargeControllerCost.toLocaleString()}\n` +
+            `- Battery Rack & Rails: ₦${batteryRackCost.toLocaleString()}\n` +
+            `- Cables & Accessories: ₦${cablesAccessoriesCost.toLocaleString()}\n` +
+            `- Logistics & Installation: ₦${logisticsInstallationCost.toLocaleString()}\n` +
+            `- Estimated Total Cost: ₦${totalCost.toLocaleString()}\n\n` +
+            `I would like to discuss my specific needs.`
+        );
+
+        // Insert WhatsApp Link after the results section
+document.getElementById("result").insertAdjacentHTML("beforeend", `
+  <div class="mt-3">
+    <hr>
+    <p><i>Want to learn more, have specific questions or discuss further?</i></p>
+    <a href="https://wa.me/${whatsappNumber}?text=${message}" 
+       class="btn btn-success" 
+       target="_blank">
+       Chat Now with an Expert on WhatsApp
+    </a>
+  </div>
+     `);
+    });
 </script>
 
-
-    
-    <!-- Footer Start --
-    <div class="container-fluid bg-dark footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-white mb-4">Our Office</h5>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                    <div class="d-flex pt-3">
-                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-white mb-4">Quick Links</h5>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-white mb-4">Business Hours</h5>
-                    <p class="mb-1">Monday - Friday</p>
-                    <h6 class="text-light">09:00 am - 07:00 pm</h6>
-                    <p class="mb-1">Saturday</p>
-                    <h6 class="text-light">09:00 am - 12:00 pm</h6>
-                    <p class="mb-1">Sunday</p>
-                    <h6 class="text-light">Closed</h6>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
-
-
-    <!-- Copyright Start -->
+        <!-- Copyright Start -->
     <div class="container-fluid copyright bg-dark py-4">
         <div class="container text-center">
             <p class="mb-2">Copyright &copy; <a class="fw-semi-bold" href="#">Tasha Energy</a>, All Right Reserved.</p>
@@ -334,6 +286,6 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-</body>
 
+</body>
 </html>
