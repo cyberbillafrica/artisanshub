@@ -119,8 +119,8 @@ const panelCost = panels * pricing.panels[panelType];
             // Display Results
             document.getElementById("result").classList.remove("d-none");
             document.getElementById("totalPower").innerText = `Estimated Total Power Requirement: ${totalPower}W`;
-            document.getElementById("inverter").innerText = `Inverter: ${inverterCapacity} (₦${inverterCost.toLocaleString()})`;
-            document.getElementById("batteries").innerText = `Batteries: ${batteries} (₦${batteryCost.toLocaleString()})`;
+            document.getElementById("inverter").innerText = `Hybrid Inverter: ${inverterCapacity} (₦${inverterCost.toLocaleString()})`;
+            document.getElementById("batteries").innerText = `Tall Tubular Batteries: ${batteries} (₦${batteryCost.toLocaleString()})`;
             document.getElementById("panels").innerText = `Solar Panels: ${panels} x ${panelType} (₦${panelCost.toLocaleString()})`;
             document.getElementById("chargeController").innerText = `MPPT Charge Controller: ₦${chargeControllerCost.toLocaleString()}`;
             document.getElementById("batteryRack").innerText = `Battery Rack & Solar Rails: ₦${batteryRackCost.toLocaleString()}`;
