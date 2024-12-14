@@ -115,17 +115,18 @@
             batteryRackCost + cablesAccessoriesCost + logisticsInstallationCost;
 
         // Display Results
-        document.getElementById("result").classList.remove("d-none");
-        document.getElementById("totalPower").innerText = `Total Power Requirement: ${totalPower}W`;
-        document.getElementById("inverter").innerText = `Inverter: ${inverterCapacity} (₦${inverterCost.toLocaleString()})`;
-        document.getElementById("batteries").innerText = `Batteries: ${batteries} (₦${batteryCost.toLocaleString()})`;
-        document.getElementById("panels").innerText = `Solar Panels: ${panels} x ${panelType} (₦${panelCost.toLocaleString()})`;
-        document.getElementById("chargeController").innerText = `Charge Controller: ₦${chargeControllerCost.toLocaleString()}`;
-        document.getElementById("batteryRack").innerText = `Battery Rack & Rails: ₦${batteryRackCost.toLocaleString()}`;
-        document.getElementById("cablesAccessories").innerText = `Cables & Accessories: ₦${cablesAccessoriesCost.toLocaleString()}`;
-        document.getElementById("logisticsInstallation").innerText = `Logistics & Installation: ₦${logisticsInstallationCost.toLocaleString()}`;
-        document.getElementById("totalCost").innerText = `Estimated Total Cost: ₦${totalCost.toLocaleString()}`;
-
+            document.getElementById("result").classList.remove("d-none");
+            document.getElementById("totalPower").innerText = `Estimated Total Power Requirement = ${totalPower} Watts`;
+            document.getElementById("inverter").innerText = `Hybrid Inverter: ${inverterCapacity} (₦${inverterCost.toLocaleString()})`;
+            document.getElementById("batteries").innerText = `Tall Tubular Batteries: ${batteries} (₦${batteryCost.toLocaleString()})`;
+            document.getElementById("panels").innerText = `Solar Panels: ${panels} x ${panelType} (₦${panelCost.toLocaleString()})`;
+            document.getElementById("chargeController").innerText = `MPPT Charge Controller: ₦${chargeControllerCost.toLocaleString()}`;
+            document.getElementById("batteryRack").innerText = `Battery Rack & Solar Rails: ₦${batteryRackCost.toLocaleString()}`;
+            document.getElementById("cablesAccessories").innerText = `Cables & Accessories: ₦${cablesAccessoriesCost.toLocaleString()}`;
+            document.getElementById("logisticsInstallation").innerText = `Logistics & Installation: ₦${logisticsInstallationCost.toLocaleString()}`;
+            document.getElementById("totalCost").innerText = `Estimated Total Cost: ₦${totalCost.toLocaleString()}`;
+        });
+    
         // Generate WhatsApp Link
         const whatsappNumber = "2349138353143"; // Replace with the expert's WhatsApp number
         const message = encodeURIComponent(
