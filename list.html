@@ -145,16 +145,23 @@ const message = encodeURIComponent(
     `I would like to discuss my specific needs.`
 );
 
-const whatsappLink = `<a href="https://wa.me/${whatsappNumber}?text=${message}" class="btn btn-success mt-3" target="_blank">Chat with an Expert on WhatsApp</a>`;
-
-// Append WhatsApp Link to Results (if not already present)
+// Add WhatsApp Button
 const resultDiv = document.getElementById("result");
-if (!document.getElementById("whatsappLink")) {
-    const whatsappDiv = document.createElement("div");
+let whatsappDiv = document.getElementById("whatsappLink");
+if (!whatsappDiv) {
+    whatsappDiv = document.createElement("div");
     whatsappDiv.id = "whatsappLink";
-    whatsappDiv.innerHTML = whatsappLink;
+    whatsappDiv.className = "mt-3";
+    whatsappDiv.innerHTML = `
+        <a href="https://wa.me/${whatsappNumber}?text=${message}" 
+           class="btn btn-success" 
+           target="_blank">
+           Chat with an Expert on WhatsApp
+        </a>`;
     resultDiv.appendChild(whatsappDiv);
 }
+
+
 </script>
 
 </body>
