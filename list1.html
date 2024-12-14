@@ -149,7 +149,7 @@
         // Display Results
         document.getElementById("result").classList.remove("d-none");
         document.getElementById("totalPower").innerText = `Estimated Total Power Requirement = ${totalPower} Watts`;
-        document.getElementById("inverter").innerText = `Hybrid Inverter: ${inverterCapacity} (₦${inverterCost.toLocaleString()})`;
+        document.getElementById("inverter").innerText = `Pure Sine Wave Inverter: ${inverterCapacity} (₦${inverterCost.toLocaleString()})`;
         document.getElementById("batteries").innerText = `Tall Tubular Batteries: ${batteries} (₦${batteryCost.toLocaleString()})`;
         document.getElementById("panels").innerText = `Solar Panels: ${panels} x ${panelType} (₦${panelCost.toLocaleString()})`;
         document.getElementById("chargeController").innerText = `MPPT Charge Controller: ₦${chargeControllerCost.toLocaleString()}`;
@@ -161,7 +161,7 @@
     // Generate WhatsApp Link
         const whatsappNumber = "2349138353143"; // Replace with the expert's WhatsApp number
         const message = encodeURIComponent(
-            `Hello, I need assistance with solar power setup. Here are my requirements:\n` +
+            `Hello, I need assistance with my solar power setup. Here are my requirements:\n` +
             `- Total Power Requirement: ${totalPower}W\n` +
             `- Inverter: ${inverterCapacity} (₦${inverterCost.toLocaleString()})\n` +
             `- Batteries: ${batteries} (₦${batteryCost.toLocaleString()})\n` +
@@ -177,7 +177,7 @@
         // Insert WhatsApp Link after the results section
 document.getElementById("result").insertAdjacentHTML("beforeend", `
   <div class="mt-3">
-    <p>Want to learn more or have specific questions?</p>
+    <p><i>Want to learn more or have specific questions?</i></p>
     <a href="https://wa.me/${whatsappNumber}?text=${message}" 
        class="btn btn-success" 
        target="_blank">
