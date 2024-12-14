@@ -92,15 +92,16 @@
             const inverterCost = pricing.inverters[inverterIndex];
 
             // Determine Batteries
-            const batteries = inverterIndex <= 1 ? 1 : inverterIndex <= 3 ? 2 : inverterIndex <= 5 ? 4 :
-                inverterIndex === 6 ? 8 : inverterIndex === 7 ? 12 : 16;
-            const batteryCost = batteries * pricing.batteries;
+const batteries = inverterIndex === 0 ? 1 : inverterIndex === 1 ? 2 : 
+    inverterIndex <= 3 ? 2 : inverterIndex <= 5 ? 4 : 
+    inverterIndex === 6 ? 8 : inverterIndex === 7 ? 12 : 16;
+const batteryCost = batteries * pricing.batteries;
 
-            // Determine Solar Panels
-            const panelType = inverterIndex <= 5 ? "250W" : "350W";
-            const panels = inverterIndex <= 5 ? batteries * 3 : batteries * 2;
-            const panelCost = panels * pricing.panels[panelType];
-
+// Determine Solar Panels
+const panelType = inverterIndex <= 5 ? "250W" : "350W";
+const panels = inverterIndex <= 5 ? batteries * 3 : batteries * 2;
+const panelCost = panels * pricing.panels[panelType];
+       
             // Determine Charge Controller
             const chargeControllerIndex = inverterIndex <= 1 ? 0 : inverterIndex <= 3 ? 1 :
                 inverterIndex <= 5 ? 2 : inverterIndex === 6 ? 3 : 4;
