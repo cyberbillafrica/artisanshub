@@ -16,7 +16,7 @@
         <div id="form-container"></div>
         <button id="calculateBtn" class="btn btn-primary mt-3">Calculate</button>
         <div id="result" class="mt-4 p-3 bg-light border rounded d-none">
-            <h2>Results</h2>
+            <h2>Your Estimated System Requirements and Costs are:</h2>
             <p id="totalPower"></p>
             <p id="inverter"></p>
             <p id="batteries"></p>
@@ -72,7 +72,7 @@
             formContainer.innerHTML += `
                 <div class="form-floating mt-3">
                     <input type="number" class="form-control" id="appliance-${index}" placeholder="${appliance}" min="0">
-                    <label for="appliance-${index}">${appliance} (${appliances[appliance]}W)</label>
+                    <label for="appliance-${index}">${appliance}</label>
                 </div>`;
         });
 
@@ -128,5 +128,6 @@
             document.getElementById("totalCost").innerText = `Estimated Total Cost: ₦${totalCost.toLocaleString()}`;
         });
     </script>
+
 </body>
 </html>
