@@ -180,6 +180,25 @@
             return;
         }
 
+            // Validate phone number (must be a valid Nigerian number with exactly 11 digits)
+    const phoneRegex = /^(070|080|081|090|091|071|093|094|095|096|097|098|099)[0-9]{8}$/;
+    if (!phoneRegex.test(phone)) {
+        alert("Please enter a valid Nigerian phone number with 11 digits.");
+        return;
+    }
+
+    // Validate power consumption input fields: Ensure that the user enters valid numbers
+    let isValid = true;
+    Object.keys(appliances).forEach((appliance, index) => {
+        const quantity = document.getElementById(`appliance-${index}`).value;
+        if (quantity && (isNaN(quantity) || quantity < 0)) {
+            alert(`Please enter a valid number for ${appliance}.`);
+            isValid = false;
+        }
+    });
+
+    if (!isValid) return;
+        
         let totalPower = 0;
         Object.values(appliances).forEach((watt, index) => {
             const quantity = parseInt(document.getElementById(`appliance-${index}`).value) || 0;
