@@ -16,7 +16,7 @@
         <div id="form-container"></div>
         <button id="calculateBtn" class="btn btn-primary mt-3">Calculate</button>
         <div id="result" class="mt-4 p-3 bg-light border rounded d-none">
-            <h2>Your Estimated System Requirements and Costs are:</h2>
+            <h4 style="color: green;">Your Estimated System Requirements and Costs are:</h4>
             <p id="totalPower"></p>
             <p id="inverter"></p>
             <p id="batteries"></p>
@@ -25,7 +25,7 @@
             <p id="batteryRack"></p>
             <p id="cablesAccessories"></p>
             <p id="logisticsInstallation"></p>
-            <h3 id="totalCost"></h3>
+            <h3 id="totalCost" style="color: red;"></h3>
         </div>
     </div>
 
@@ -118,12 +118,12 @@ const panelCost = panels * pricing.panels[panelType];
 
             // Display Results
             document.getElementById("result").classList.remove("d-none");
-            document.getElementById("totalPower").innerText = `Total Power Requirement: ${totalPower}W`;
+            document.getElementById("totalPower").innerText = `Estimated Total Power Requirement: ${totalPower}W`;
             document.getElementById("inverter").innerText = `Inverter: ${inverterCapacity} (₦${inverterCost.toLocaleString()})`;
             document.getElementById("batteries").innerText = `Batteries: ${batteries} (₦${batteryCost.toLocaleString()})`;
             document.getElementById("panels").innerText = `Solar Panels: ${panels} x ${panelType} (₦${panelCost.toLocaleString()})`;
-            document.getElementById("chargeController").innerText = `Charge Controller: ₦${chargeControllerCost.toLocaleString()}`;
-            document.getElementById("batteryRack").innerText = `Battery Rack & Rails: ₦${batteryRackCost.toLocaleString()}`;
+            document.getElementById("chargeController").innerText = `MPPT Charge Controller: ₦${chargeControllerCost.toLocaleString()}`;
+            document.getElementById("batteryRack").innerText = `Battery Rack & Solar Rails: ₦${batteryRackCost.toLocaleString()}`;
             document.getElementById("cablesAccessories").innerText = `Cables & Accessories: ₦${cablesAccessoriesCost.toLocaleString()}`;
             document.getElementById("logisticsInstallation").innerText = `Logistics & Installation: ₦${logisticsInstallationCost.toLocaleString()}`;
             document.getElementById("totalCost").innerText = `Estimated Total Cost: ₦${totalCost.toLocaleString()}`;
