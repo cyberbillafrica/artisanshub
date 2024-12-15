@@ -62,7 +62,8 @@ h6,
 
 .btn-primary,
 .btn-outline-primary:hover {
-    color: #F5F5F5; /* Text color */
+    color: #FFFFFF; /* Text color */
+    font-weight: bold;
     background-color: #26d48c; /* Background color */
     border-color: #26d48c; /* Optional: Match the border with the background */
     border-radius: 15px; /* Curves the edges (higher value = more rounded) */
