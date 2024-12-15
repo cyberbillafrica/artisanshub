@@ -106,22 +106,22 @@
         <!-- User Details Section -->
         <h5>Fill in your Personal Details</h5><div id="user-details" class="mb-4">
             <div class="form-floating mt-3">
-                <input type="text" class="form-control" id="userName" placeholder="Name" required>
+                <input type="text" class="form-control" id="userName" placeholder="Enter your Name" required>
                 <label for="userName">Name</label>
             </div>
             <div class="form-floating mt-3">
-                <input type="tel" class="form-control" id="userPhone" placeholder="Phone Number" required>
+                <input type="tel" class="form-control" id="userPhone" placeholder="Enter Phone Number" required>
                 <label for="userPhone">Phone Number</label>
             </div>
             <div class="form-floating mt-3">
-                <input type="text" class="form-control" id="userLocation" placeholder="Location" required>
+                <input type="text" class="form-control" id="userLocation" placeholder="Enter Location (Town and City) " required>
                 <label for="userLocation">Location</label>
             </div>
         </div>
         
         <!-- Appliance Input Section -->
        <h5>Fill in your Appliances</h5>
-        <small><i>Enter the quantity of each of the appliances you have & will want the Solar system to power. Ignore those not available.</i></small>
+        <small><i>Enter the quantity of each of the appliances you have and will want the Solar system to power. Ignore those not available.</i></small>
         <div id="form-container"></div>
         
         <!-- Calculate Button -->
@@ -147,7 +147,7 @@
     // Appliance Wattages
     const appliances = {
         "Light Bulb (LED)": 20,
-        "Electric Fan": 100,
+        "Electric Fan (Standing or Ceiling)": 100,
         "Television": 150,
         "Decoder": 50,
         "Sound System": 200,
