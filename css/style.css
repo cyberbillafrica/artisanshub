@@ -62,9 +62,25 @@ h6,
 
 .btn-primary,
 .btn-outline-primary:hover {
-    color: #26d48c;
+    color: #FF5E14; /* Text color */
+    background-color: #26d48c; /* Background color */
+    border-color: #26d48c; /* Optional: Match the border with the background */
+    border-radius: 25px; /* Curves the edges (higher value = more rounded) */
+    padding: 10px 20px; /* Optional: Adjust padding for a better look */
+    transition: all 0.3s ease-in-out; /* Optional: Smooth hover effect */
 }
 
+.btn-primary:hover {
+    background-color: #1db379; /* Darker shade for hover effect */
+    border-color: #1db379; /* Match border for hover */
+}
+
+
+/*.btn-primary,
+.btn-outline-primary:hover {
+    color: #FF5E14;
+}
+*/
 .btn-square {
     width: 38px;
     height: 38px;
