@@ -125,7 +125,7 @@
     // Appliance Wattages
     const appliances = {
         "Light Bulb (LED)": 20,
-        "Electric Fan": 100,
+        "Electric Fan (Standing or Ceiling)": 100,
         "Television": 150,
         "Decoder": 50,
         "Sound System": 200,
@@ -168,6 +168,20 @@
             </div>`;
     });
 
+    // Function to send data to Google Sheets
+    async function saveLeadToGoogleSheet(data) {
+        const scriptURL = "YOUR_GOOGLE_SCRIPT_URL_HERE"; // Replace with your Google Apps Script URL
+        try {
+            await fetch(scriptURL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+        } catch (error) {
+            console.error("Error saving lead data:", error);
+        }
+    }
+
     // Calculate Total Power and Materials
     document.getElementById("calculateBtn").addEventListener("click", () => {
         const name = document.getElementById("userName").value.trim();
@@ -180,25 +194,25 @@
             return;
         }
 
-            // Validate phone number (must be a valid Nigerian number with exactly 11 digits)
-    const phoneRegex = /^(070|080|081|090|091|071|093|094|095|096|097|098|099)[0-9]{8}$/;
-    if (!phoneRegex.test(phone)) {
-        alert("Please enter a valid Nigerian phone number with 11 digits.");
-        return;
-    }
-
-    // Validate power consumption input fields: Ensure that the user enters valid numbers
-    let isValid = true;
-    Object.keys(appliances).forEach((appliance, index) => {
-        const quantity = document.getElementById(`appliance-${index}`).value;
-        if (quantity && (isNaN(quantity) || quantity < 0)) {
-            alert(`Please enter a valid number for ${appliance}.`);
-            isValid = false;
+        // Validate phone number (must be a valid Nigerian number with exactly 11 digits)
+        const phoneRegex = /^(070|080|081|090|091|071|093|094|095|096|097|098|099)[0-9]{8}$/;
+        if (!phoneRegex.test(phone)) {
+            alert("Please enter a valid Nigerian phone number with 11 digits.");
+            return;
         }
-    });
 
-    if (!isValid) return;
-        
+        // Validate power consumption input fields
+        let isValid = true;
+        Object.keys(appliances).forEach((appliance, index) => {
+            const quantity = document.getElementById(`appliance-${index}`).value;
+            if (quantity && (isNaN(quantity) || quantity < 0)) {
+                alert(`Please enter a valid number for ${appliance}.`);
+                isValid = false;
+            }
+        });
+
+        if (!isValid) return;
+
         let totalPower = 0;
         Object.values(appliances).forEach((watt, index) => {
             const quantity = parseInt(document.getElementById(`appliance-${index}`).value) || 0;
@@ -212,7 +226,7 @@
         const inverterCapacity = ["1kVA", "1.5kVA", "2kVA", "2.5kVA", "3kVA", "3.5kVA", "5kVA", "7.5kVA", "10kVA"][inverterIndex];
         const inverterCost = pricing.inverters[inverterIndex];
 
-        // Determine Batteries (1kVA -> 1 battery, 1.5kVA -> 2 batteries, etc.)
+        // Determine Batteries
         const batteries = inverterIndex === 0 ? 1 : inverterIndex === 1 ? 2 : inverterIndex <= 3 ? 4 :
             inverterIndex <= 5 ? 8 : inverterIndex <= 7 ? 12 : 16;
         const batteryCost = batteries * pricing.batteries;
@@ -248,10 +262,20 @@
         document.getElementById("logisticsInstallation").innerText = `Logistics & Installation: ₦${logisticsInstallationCost.toLocaleString()}`;
         document.getElementById("totalCost").innerText = `Estimated Total Cost: ₦${totalCost.toLocaleString()}`;
 
-    // Generate WhatsApp Link
-        const whatsappNumber = "2349138353143"; // Replace with the expert's WhatsApp number
+        // Send data to Google Sheets
+        saveLeadToGoogleSheet({
+            name,
+            phone,
+            location,
+            totalPower,
+            totalCost,
+            timestamp: new Date().toISOString()
+        });
+
+        // WhatsApp Link
+        const whatsappNumber = "2348022987177"; // Replace with the expert's WhatsApp number
         const message = encodeURIComponent(
-            `Hello, I need assistance with my solar power setup. Here are my requirements:\n` +
+            `Hello, I need assistance with my solar power setup. Here are my requirements from Calculation:\n` +
             `- Total Power Requirement: ${totalPower}W\n` +
             `- Inverter: ${inverterCapacity} (₦${inverterCost.toLocaleString()})\n` +
             `- Batteries: ${batteries} (₦${batteryCost.toLocaleString()})\n` +
@@ -264,18 +288,17 @@
             `I would like to discuss my specific needs.`
         );
 
-        // Insert WhatsApp Link after the results section
-document.getElementById("result").insertAdjacentHTML("beforeend", `
-  <div class="mt-3">
-    <hr>
-    <p><i>Want to learn more, have specific questions or discuss further?</i></p>
-    <a href="https://wa.me/${whatsappNumber}?text=${message}" 
-       class="btn btn-success" 
-       target="_blank">
-       Chat Now with an Expert on WhatsApp
-    </a>
-  </div>
-     `);
+        document.getElementById("result").insertAdjacentHTML("beforeend", `
+          <div class="mt-3">
+            <hr>
+            <p><i>Want to learn more, have specific questions or discuss further?</i></p>
+            <a href="https://wa.me/${whatsappNumber}?text=${message}" 
+               class="btn btn-primary" 
+               target="_blank">
+               Chat Now with an Expert <i class="fa fa-arrow-right ms-2"></i>
+            </a>
+          </div>
+        `);
     });
 </script>
 
