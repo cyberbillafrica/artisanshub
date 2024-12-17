@@ -190,6 +190,23 @@
                     <label for="appliance-${index}">${appliance}</label>
                 </div>`;
         });
+        
+ // Function to Submit Data to Google Sheets
+        function submitToSheet(name, phone, location, totalPower, totalCost) {
+            const scriptUrl = "https://script.google.com/macros/s/AKfycbyq5GJ32feSN4MOHZPmxoT9TIkCoMEMQOiZpeZlGkTDLuB-OaQDZ3znSsMAE5F8m9fE/exec"; // Replace with your deployed Apps Script URL
+
+            const formData = new FormData();
+            formData.append("name", name);
+            formData.append("phone", phone);
+            formData.append("location", location);
+            formData.append("totalPower", totalPower);
+            formData.append("totalCost", totalCost);
+
+            fetch(scriptUrl, { method: "POST", body: formData })
+                .then(response => response.json())
+                .then(data => alert(data.status === "success" ? "Data submitted successfully!" : "Error submitting data."))
+                .catch(() => alert("There was an error submitting the data. Please try again."));
+        }
 
         // Calculate Total Power and Materials
         document.getElementById("calculateBtn").addEventListener("click", () => {
@@ -274,35 +291,6 @@
              // Submit to Google Sheets
     submitToSheet(name, phone, location, totalPower, totalCost);
 });
-
-// Function to Submit Data to Google Sheets
-function submitToSheet(name, phone, location, totalPower, totalCost) {
-    const scriptUrl = "https://script.google.com/macros/s/AKfycbyq5GJ32feSN4MOHZPmxoT9TIkCoMEMQOiZpeZlGkTDLuB-OaQDZ3znSsMAE5F8m9fE/exec"; // Replace with your deployed Apps Script URL
-
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("phone", phone);
-    formData.append("location", location);
-    formData.append("totalPower", totalPower);
-    formData.append("totalCost", totalCost);
-
-    fetch(scriptUrl, {
-        method: "POST",
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === "success") {
-            alert("Data submitted successfully!");
-        } else {
-            alert("Error submitting data. Please try again.");
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert("There was an error submitting the data. Please try again.");
-    });
-}
             
             // WhatsApp Link
             const whatsappNumber = "2348022987177"; 
