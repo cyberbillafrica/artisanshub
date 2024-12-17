@@ -168,23 +168,6 @@
             </div>`;
     });
 
-     // Function to Submit Data to Google Sheets
-        function submitToSheet(name, phone, location, totalPower, totalCost) {
-            const scriptUrl = "https://script.google.com/macros/s/AKfycbyq5GJ32feSN4MOHZPmxoT9TIkCoMEMQOiZpeZlGkTDLuB-OaQDZ3znSsMAE5F8m9fE/exec"; // Replace with your deployed Apps Script URL
-
-            const formData = new FormData();
-            formData.append("name", name);
-            formData.append("phone", phone);
-            formData.append("location", location);
-            formData.append("totalPower", totalPower);
-            formData.append("totalCost", totalCost);
-
-            fetch(scriptUrl, { method: "POST", body: formData })
-                .then(response => response.json())
-                .then(data => alert(data.status === "success" ? "Data submitted successfully!" : "Error submitting data."))
-                .catch(() => alert("There was an error submitting the data. Please try again."));
-        }
-
 
     // Calculate Total Power and Materials
     document.getElementById("calculateBtn").addEventListener("click", () => {
@@ -265,9 +248,6 @@
         document.getElementById("cablesAccessories").innerText = `Cables & Accessories: ₦${cablesAccessoriesCost.toLocaleString()}`;
         document.getElementById("logisticsInstallation").innerText = `Logistics & Installation: ₦${logisticsInstallationCost.toLocaleString()}`;
         document.getElementById("totalCost").innerText = `Estimated Total Cost: ₦${totalCost.toLocaleString()}`;
-
-      submitToSheet(name, phone, location, totalPower, totalCost);
-        });
 
         // WhatsApp Link
         const whatsappNumber = "2348022987177"; // Replace with the expert's WhatsApp number
