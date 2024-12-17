@@ -116,15 +116,20 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 </div>
-
+<hr>
 <script>
     // Get the current page URL
     const pageUrl = encodeURIComponent(window.location.href);
 
     // Update share links dynamically
-    document.getElementById("twitter-share").href = `https://twitter.com/intent/tweet?url=${pageUrl}&text=Check%20this%20out!`;
-    document.getElementById("facebook-share").href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
-    document.getElementById("whatsapp-share").href = `https://api.whatsapp.com/send?text=Check%20this%20out:%20${pageUrl}`;
+     document.getElementById("twitter-share").href = 
+    `https://twitter.com/intent/tweet?url=${pageUrl}&text=Check%20out%20how%20much%20it%20will%20cost%20you%20to%20power%20your%20house%20or%20office%20with%20Solar%20Power%20System`;
+
+     document.getElementById("facebook-share").href = 
+    `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+
+     document.getElementById("whatsapp-share").href = 
+    `https://api.whatsapp.com/send?text=Check%20out%20how%20much%20it%20will%20cost%20you%20to%20power%20your%20house%20or%20office%20with%20Solar%20Power%20System:%20${pageUrl}`;
 </script>
 <!-- Share News End-->
         <!-- User Details Section -->
