@@ -106,15 +106,15 @@
         <h5>Fill in your Personal Details</h5>
         <div id="user-details" class="mb-4">
             <div class="form-floating mt-3">
-                <input type="text" class="form-control" id="userName" placeholder="Enter your Name" required>
+                <input type="text" class="form-control" id="userName" placeholder="Name" required>
                 <label for="userName">Enter your Name</label>
             </div>
             <div class="form-floating mt-3">
-                <input type="tel" class="form-control" id="userPhone" placeholder="Enter Phone Number" required>
+                <input type="tel" class="form-control" id="userPhone" placeholder="Phone Number" required>
                 <label for="userPhone">Enter Phone Number</label>
             </div>
             <div class="form-floating mt-3">
-                <input type="text" class="form-control" id="userLocation" placeholder="Enter Location (Town and City)" required>
+                <input type="text" class="form-control" id="userLocation" placeholder="Location" required>
                 <label for="userLocation">Enter Location (Town and State)</label>
             </div>
         </div>
@@ -190,38 +190,6 @@
                     <label for="appliance-${index}">${appliance}</label>
                 </div>`;
         });
-
-        function sendDataToSheet(name, phone, location, totalPower, totalCost) {
-            const url = "https://script.google.com/macros/s/AKfycbyT3nmWd1BIpzNh22w1E3n2dzPIcvrDYU0R4Poa2vhOPqCpgt4TmKYNH5RPL1seR5Ls/exec"; // Replace with your actual Web App URL
-
-            const data = {
-                name: name,
-                phone: phone,
-                location: location,
-                totalPower: totalPower,
-                totalCost: totalCost
-            };
-
-            // Send data to Google Sheets via POST request
-            fetch(url, {
-                method: "POST",
-                body: JSON.stringify(data),
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === "duplicate") {
-                    console.warn("Duplicate entry detected:", data.message);
-                } else if (data.status === "success") {
-                    console.log("Data sent successfully:", data.message);
-                }
-            })
-            .catch(error => {
-                console.error("Error sending data to sheet:", error);
-            });
-        }
 
         // Calculate Total Power and Materials
         document.getElementById("calculateBtn").addEventListener("click", () => {
@@ -302,10 +270,7 @@
             document.getElementById("logisticsInstallation").innerText = `Logistics & Installation: ₦${logisticsInstallationCost.toLocaleString()}`;
             document.getElementById("totalCost").innerText = `Estimated Total Cost: ₦${totalCost.toLocaleString()}`;
 
-            // Send Data to Google Sheets
-            sendDataToSheet(name, phone, location, totalPower, totalCost);
-
-            // WhatsApp Link
+               // WhatsApp Link
             const whatsappNumber = "2348022987177"; 
             const message = encodeURIComponent(`
                 Hello, I need assistance with my solar power setup. Here are my requirements from Calculation:
