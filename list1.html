@@ -266,14 +266,7 @@
         document.getElementById("logisticsInstallation").innerText = `Logistics & Installation: ₦${logisticsInstallationCost.toLocaleString()}`;
         document.getElementById("totalCost").innerText = `Estimated Total Cost: ₦${totalCost.toLocaleString()}`;
 
-        // Send data to Google Sheets
-        saveLeadToGoogleSheet({
-            name,
-            phone,
-            location,
-            totalPower,
-            totalCost,
-            timestamp: new Date().toISOString()
+      submitToSheet(name, phone, location, totalPower, totalCost);
         });
 
         // WhatsApp Link
